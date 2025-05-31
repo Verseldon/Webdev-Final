@@ -51,16 +51,16 @@
 
   <div class="editor-toolbar">
     <button onclick="format('bold')"><b>B</b></button>
-    <button onclick="format('italic')"><i>Indent</i></button>
+    <button onclick="format('italic')"><i>I</i></button>
     <select onchange="format('fontSize', this.value)">
       <option value="">Font Size</option>
       <option value="2">Small</option>
       <option value="4">Medium</option>
       <option value="6">Large</option>
     </select>
-    <button onclick="format('insertImage', prompt('Enter image URL'))">Image</button>
     <button onclick="format('indent')">Indent</button>
     <button onclick="format('outdent')">Outdent</button>
+    <button onclick="format('insertImage', prompt('Enter image URL'))"> &#x1F601 </button>
   </div>
 
   <div id="editorContent" class="editor-content" contenteditable="true"></div>
