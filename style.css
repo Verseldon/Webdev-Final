@@ -1,0 +1,116 @@
+:root {
+  --bg-color: #f4a261;
+  --note-color: #fcdcb5;
+  --text-color: #000;
+  --header-color: #e76f51;
+  --sidebar-color: #fcdcb5;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--header-color);
+  padding: 10px 20px;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+}
+
+header .logo img {
+  width: 40px;
+  margin-right: 10px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.menu-btn {
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+#sidebar {
+  position: fixed;
+  left: -250px;
+  top: 0;
+  height: 100%;
+  width: 250px;
+  background: var(--sidebar-color);
+  padding: 20px;
+  transition: left 0.3s;
+}
+
+#sidebar.active {
+  left: 0;
+}
+
+#sidebar .profile {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#sidebar .profile img {
+  width: 60px;
+  border-radius: 50%;
+}
+
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+#sidebar li {
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+main {
+  padding: 20px;
+}
+
+.notes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.note {
+  background: var(--note-color);
+  padding: 10px;
+  border-radius: 10px;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.note img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.add-note-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--header-color);
+  color: #fff;
+  border: none;
+  font-size: 2em;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}

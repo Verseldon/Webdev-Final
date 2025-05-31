@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buenas Notes</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="Notes Buenas Logo" />
+      <h1>Buenas Notes!</h1>
+    </div>
+    <div class="menu-btn" onclick="toggleSidebar()">☰</div>
+  </header>
+
+  <!-- Sidebar -->
+  <aside id="sidebar">
+    <div class="profile">
+      <img src="avatar.png" alt="User Avatar" />
+      <p>Señor User Name</p>
+    </div>
+    <ul>
+      <li onclick="showArchived()">Archived Notes</li>
+      <li onclick="editProfile()">Edit Profile</li>
+      <li onclick="toggleDarkMode()">Display Mode</li>
+      <li>Preferences</li>
+      <li>Notifications</li>
+      <li>Sync Data</li>
+      <li>Terms & Conditions</li>
+      <li>Privacy Policy</li>
+      <li>Bug Report</li>
+    </ul>
+  </aside>
+
+  <!-- Main content -->
+  <main>
+    <div class="notes-container" id="notesContainer"></div>
+    <button class="add-note-btn" onclick="createNote()">+</button>
+  </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
