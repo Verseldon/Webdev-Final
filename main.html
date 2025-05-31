@@ -9,20 +9,18 @@
 <body>
 
 <div id="app">
-  <!-- Header -->
   <header>
     <div class="logo">
-      <img src="logo.png" alt="Notes Buenas Logo" />
-      <h1>Buenas Notes!</h1>
+      <img src="logo.png" alt="Buenas Notes Logo" />
+      <h1>Notes Buenas!</h1>
     </div>
     <div class="menu-btn" onclick="toggleSidebar()">☰</div>
   </header>
 
-  <!-- Sidebar -->
   <aside id="sidebar">
     <div class="profile">
       <img src="avatar.png" alt="User Avatar" />
-      <p>Señor User Name</p>
+      <p>Señor Conejo Delmonte</p>
     </div>
     <ul>
       <li onclick="showArchived()">Archived Notes</li>
@@ -36,8 +34,16 @@
       <li>Bug Report</li>
     </ul>
   </aside>
+  
+<div id="editorOverlay" class="editor-overlay">
+  <div class="editor-header">
+    <button onclick="closeEditor()">← Back</button>
+    <button onclick="saveEditor()">Save</button>
+  </div>
+  <div id="editorContent" contenteditable="true" class="editor-content"></div>
+</div>
 
-  <!-- Main content -->
+
   <main>
     <div class="notes-container" id="notesContainer"></div>
     <button class="add-note-btn" onclick="createNote()">+</button>
