@@ -221,3 +221,17 @@ body.dark-mode .editor-overlay {
   background: #222;
   color: #eee;
 }
+
+body.dark-mode .note {
+  background: #555;
+  color: #eee;
+}
+
+body.dark-mode .editor-overlay {
+  background: #222;
+  color: #eee;
+}
+
+body.dark-mode #sidebar {
+  background: #2a2a2a;
+}
