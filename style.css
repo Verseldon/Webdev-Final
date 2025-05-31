@@ -13,34 +13,19 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Quicksand', Tahoma, Geneva, Verdana, sans-serif;
   background: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
 }
 
-h1 {
-  font-size: 1.4em;
-  color: #fff;
-}
-
-ul {
-  list-style: none;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 5px;
-}
-
-/* Header */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: var(--header-color);
   padding: 10px 20px;
+  color: #fff;
 }
 
 header .logo {
@@ -58,16 +43,16 @@ header .logo img {
   cursor: pointer;
 }
 
-/* Sidebar */
 #sidebar {
   position: fixed;
-  top: 0;
   left: -250px;
-  width: 250px;
+  top: 0;
   height: 100%;
+  width: 250px;
   background: var(--sidebar-color);
   padding: 20px;
   transition: left 0.3s;
+  z-index: 1000;
 }
 
 #sidebar.active {
@@ -84,53 +69,57 @@ header .logo img {
   border-radius: 50%;
 }
 
+#sidebar ul {
+  list-style: none;
+}
+
 #sidebar li {
   padding: 10px 5px;
-  font-size: 0.95em;
   cursor: pointer;
   transition: background 0.2s;
 }
 
 #sidebar li:hover {
-  background: rgba(0, 0, 0, 0.1);
-}
-
-/* Main Content */
-main {
-  padding: 20px;
+  background: rgba(0,0,0,0.1);
 }
 
 .notes-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 15px;
-  margin-top: 20px;
+  margin: 20px;
 }
 
 .note {
   background: var(--note-color);
-  border-radius: 8px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   transition: transform 0.2s, box-shadow 0.2s;
   cursor: pointer;
-}
-
-.note:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  height: 180px; /* Fixed height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
 }
 
 .note p {
-  margin-bottom: 10px;
-  font-size: 0.9em;
-  color: #333;
-  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 6; /* Number of lines to show */
+  -webkit-box-orient: vertical;
+  font-size: 0.95em;
+  line-height: 1.4;
 }
 
-/* Add Note Button */
+
+.note:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
 .add-note-btn {
   position: fixed;
   bottom: 25px;
@@ -143,7 +132,7 @@ main {
   height: 60px;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
   transition: background 0.2s;
 }
 
@@ -151,18 +140,16 @@ main {
   background: #d65a3b;
 }
 
-/* Editor Overlay */
 .editor-overlay {
-  display: none;
-  flex-direction: column;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: #fff;
-  color: #000;
-  z-index: 1000;
+  display: none;
+  flex-direction: column;
+  z-index: 9999;
 }
 
 .editor-header {
@@ -174,32 +161,44 @@ main {
   padding: 10px 20px;
 }
 
-.editor-header button {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 1em;
-  cursor: pointer;
+.editor-toolbar {
+  display: flex;
+  gap: 10px;
+  background: #eee;
+  padding: 5px 10px;
 }
 
-.editor-header button:hover {
-  text-decoration: underline;
+.editor-toolbar button,
+.editor-toolbar select {
+  cursor: pointer;
 }
 
 .editor-content {
   flex: 1;
-  padding: 30px;
+  padding: 20px;
   font-size: 1.1em;
-  line-height: 1.6;
-  outline: none;
   overflow-y: auto;
+  outline: none;
 }
 
-.editable-content {
-  flex: 1;
-  outline: none;
-  min-height: 100px;
-  margin-bottom: 10px;
+#sidebar ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#sidebar li {
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+}
+
+#sidebar li:hover {
+  background: #f4f1ee;
+  transform: scale(1.03);
 }
 
 /* Dark Mode */
